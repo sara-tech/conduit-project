@@ -1,3 +1,5 @@
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
     def __init__(self, driver):
@@ -11,3 +13,13 @@ class BasePage:
     
     def get_title(self):
         return self.driver.title
+    
+    def wait_for_element(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(
+            EC.presence_of_element_located(locator)
+        )
+
+    def wait_for_element_to_be_clickable(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout).until(
+            EC.element_to_be_clickable(locator)
+        )
