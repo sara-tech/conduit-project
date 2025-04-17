@@ -22,16 +22,19 @@ jobs:
         pip install -r requirements.txt
     - name: Run tests with pytest
       run: |
-        mkdir -p assets  # Create directory for custom CSS
+        mkdir -p reports/assets/css
         pytest tests \
-          --html=report.html \
+          --html=reports/pytest_report.html \
           --self-contained-html \
-          --css=assets/style.css \
-          --title="My QA Portfolio | $(date '+%m/%d')"
-    - name: Upload test report
+          --css=reports/assets/css/style.css \
+          --title="QA Portfolio | $(date '+%Y-%m-%d')" \
+          --metadata "Python Version" "$(python --version)" \
+          --metadata "Base URL" "${{ secrets.TARGET_URL }}"
+    - name: Upload test artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: pytest-html-report
-        path: report.html
-        retention-days: 7
-        if-no-files-found: error
+        name: test-artifacts
+        path: |
+          reports/pytest_report.html
+          reports/assets/css/style.css
+        retention-days: 14

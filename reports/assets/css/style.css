@@ -1,0 +1,25 @@
+/* QA Portfolio Test Report Styling */
+:root {
+    --primary: #3498db;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    color: var(--primary);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+  }
+  
+  .passed {
+    background-color: color-mix(in srgb, var(--success) 10%, white) !important;
+  }
+  
+  .failed {
+    background-color: color-mix(in srgb, var(--danger) 10%, white) !important;
+  }
