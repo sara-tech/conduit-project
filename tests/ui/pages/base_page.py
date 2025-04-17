@@ -24,3 +24,6 @@ class BasePage:
         WebDriverWait(self.driver, timeout).until(
             EC.element_to_be_clickable(locator)
         )
+    
+    def navigate_to(self, url):
+        self.driver.get(url)
