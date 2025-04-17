@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 
 class BasePage:
     def __init__(self, driver: webdriver.Chrome):
@@ -27,3 +28,12 @@ class BasePage:
     
     def navigate_to(self, url):
         self.driver.get(url)
+    
+    def enter_text(self, locator, text):
+        element = self.find_element(locator)
+        element.clear()
+        element.send_keys(text)
+
+    def select_dropdown(self, locator, value):
+        dropdown = Select(self.find_element(locator))
+        dropdown.select_by_visible_text(value)
