@@ -1,0 +1,26 @@
+/* Portfolio Test Report Styling */
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  h1 {
+    color: #2c3e50;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .passed {
+    background-color: #e8f5e9 !important;
+  }
+  
+  .failed {
+    background-color: #ffebee !important;
+  }
+  
+  /* Makes metadata section stand out */
+  #environment td {
+    font-family: monospace;
+    background-color: #f5f5f5 !important;
+  }
