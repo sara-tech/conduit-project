@@ -22,7 +22,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run tests with pytest
       run: |
-        pytest --html=report.html
+        pytest tests --html=report.html
     - name: Upload test report
       uses: actions/upload-artifact@v4  # Latest stable
       with:
